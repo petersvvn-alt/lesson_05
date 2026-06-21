@@ -37,11 +37,6 @@ db.createUser({
 ``` javascript
 > show collections
 data
-> db.data.insertOne({ name: "test2", value: 2 })
-{
-	"acknowledged" : true,
-	"insertedId" : ObjectId("6a3838d7da8370e11a64311f")
-}
 > db.getUser("manager")
 {
 	"_id" : "mydb.manager",
@@ -60,3 +55,45 @@ data
 	]
 }
 ```
+
+## Доп задание
+
+1. Создать директорию ``/var/www/server-app``; в ней файлы ``readme.md`` и ``app.log``; директорию ``uploads``
+![alt text](images/image1.png)
+2. Создать:
+- группу ``ftpusers``
+- группу ``admins``
+- группу ``auditors``
+![alt text](images/image2.png)
+Проверяю
+![alt text](images/image2-1.png)
+3. Создать 
+- пользователя ``logger`` без возможности входа в систему
+- пользователя ``vmadmin``
+``` bash
+pister@pister-VirtualBox:~$ sudo useradd -s /bin/nologin logger
+useradd: Warning: missing or non-executable shell '/bin/nologin'
+pister@pister-VirtualBox:~$ sudo useradd -m -s /bin/bash vmadmin
+```
+Проверяю:
+``` bash
+pister@pister-VirtualBox:~$ cat /etc/passwd | grep -iE 'logger|vmadmin'
+logger:x:1001:1004::/home/logger:/bin/nologin
+vmadmin:x:1002:1005::/home/vmadmin:/bin/bash
+```
+4. Назначить права:
+- директория uploads: владелец root, группа - ftpusers
+- файл app.log: владелец logger, группа - root
+- файл readme.md: владелец vmadmin, группа - admins
+
+![alt text](images/image5.png)
+5. Создать пользователей ``deployer`` и ``researcher``
+Добавить:
+- пользователя ``deployer`` в группу ``admins``
+- пользователя ``researcher`` в группу ``auditors``
+![alt text](images/image6.png)
+6. Назначить режим доступа:
+- файл readme.md: владелец имеет все права; группа и остальные - только чтение
+- файл app.log: владелец имеет все права; - группа - только чтение; остальные - ничего
+директория uploads: все категории имеют все права
+![alt text](images/image7.png)
