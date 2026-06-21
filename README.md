@@ -64,8 +64,10 @@ data
 - группу ``ftpusers``
 - группу ``admins``
 - группу ``auditors``
+
 ![alt text](images/image2.png)
-Проверяю
+
+Проверяю:
 ![alt text](images/image2-1.png)
 3. Создать 
 - пользователя ``logger`` без возможности входа в систему
@@ -82,18 +84,19 @@ logger:x:1001:1004::/home/logger:/bin/nologin
 vmadmin:x:1002:1005::/home/vmadmin:/bin/bash
 ```
 4. Назначить права:
-- директория uploads: владелец root, группа - ftpusers
-- файл app.log: владелец logger, группа - root
-- файл readme.md: владелец vmadmin, группа - admins
+- директория ``uploads``: владелец ``root``, группа - ``ftpusers``
+- файл ``app.log``: владелец ``logger``, группа - ``root``
+- файл ``readme.md``: владелец ``vmadmin``, группа - ``admins``
 
 ![alt text](images/image5.png)
+
 5. Создать пользователей ``deployer`` и ``researcher``
 Добавить:
 - пользователя ``deployer`` в группу ``admins``
 - пользователя ``researcher`` в группу ``auditors``
 ![alt text](images/image6.png)
 6. Назначить режим доступа:
-- файл readme.md: владелец имеет все права; группа и остальные - только чтение
-- файл app.log: владелец имеет все права; - группа - только чтение; остальные - ничего
-директория uploads: все категории имеют все права
+- файл ``readme.md``: владелец имеет все права; группа и остальные - только чтение
+- файл ``app.log``: владелец имеет все права; - группа - только чтение; остальные - ничего
+директория ``uploads``: все категории имеют все права
 ![alt text](images/image7.png)
