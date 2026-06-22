@@ -73,7 +73,7 @@ data
 - пользователя ``logger`` без возможности входа в систему
 - пользователя ``vmadmin``
 ``` bash
-pister@pister-VirtualBox:~$ sudo useradd -s /bin/nologin logger
+pister@pister-VirtualBox:~$ sudo useradd -s /sbin/nologin logger
 useradd: Warning: missing or non-executable shell '/bin/nologin'
 pister@pister-VirtualBox:~$ sudo useradd -m -s /bin/bash vmadmin
 ```
