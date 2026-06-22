@@ -80,7 +80,7 @@ pister@pister-VirtualBox:~$ sudo useradd -m -s /bin/bash vmadmin
 Проверяю:
 ``` bash
 pister@pister-VirtualBox:~$ cat /etc/passwd | grep -iE 'logger|vmadmin'
-logger:x:1001:1004::/home/logger:/bin/nologin
+logger:x:1001:1004::/home/logger:/sbin/nologin
 vmadmin:x:1002:1005::/home/vmadmin:/bin/bash
 ```
 4. Назначить права:
